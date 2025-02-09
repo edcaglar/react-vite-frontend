@@ -65,7 +65,17 @@ export const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
   const user = useUser();
   const location = useLocation();
 
+  if (user.isLoading) {
+    return null; // veya loading spinner
+  }
+
+  if (user.error) {
+    // Hata durumunda login'e yönlendir ama redirectTo ekleme
+    return <Navigate to={paths.auth.login.getHref()} replace />;
+  }
+
   if (!user.data) {
+    // Normal durumda redirectTo ekle
     return (
       <Navigate to={paths.auth.login.getHref(location.pathname)} replace />
     );

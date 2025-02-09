@@ -29,7 +29,7 @@ export const RegisterForm = ({ onSuccess }: RegisterFormProps) => {
         {({ register, formState }) => (
           <>
             <Input
-              type="username"
+              type="text"
               label="User Name"
               error={formState.errors['username']}
               registration={register('username')}

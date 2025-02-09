@@ -45,23 +45,13 @@ export const createAppRouter = (queryClient: QueryClient) =>
       ErrorBoundary: AppRootErrorBoundary,
       children: [
         {
-          path: paths.app.tokens.path,
-          lazy: () =>
-            import('./routes/app/tokens/tokens').then(convert(queryClient)),
-        },
-        {
-          path: paths.app.discussion.path,
-          lazy: () =>
-            import('./routes/app/tokens/tokens').then(convert(queryClient)),
-        },
-        {
-          path: paths.app.profile.path,
-          lazy: () => import('./routes/app/profile').then(convert(queryClient)),
-        },
-        {
           path: paths.app.dashboard.path,
           lazy: () =>
             import('./routes/app/dashboard').then(convert(queryClient)),
+        },
+        {
+          path: paths.app.tokens.path,
+          lazy: () => import('./routes/app/tokens').then(convert(queryClient)),
         },
       ],
     },

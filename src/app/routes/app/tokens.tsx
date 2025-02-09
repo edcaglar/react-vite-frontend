@@ -1,12 +1,11 @@
 import { QueryClient } from '@tanstack/react-query';
 
 import { ContentLayout } from '@/components/layouts';
-
-import { getUsersQueryOptions } from '@/features/users/api/get-tokens';
-import { UsersList } from '@/features/users/components/users-list';
+import { getTokensQueryOptions } from '@/features/tokens/api/get-tokens';
+import { TokensList } from '@/features/tokens/components/tokens-list';
 
 export const clientLoader = (queryClient: QueryClient) => async () => {
-  const query = getUsersQueryOptions();
+  const query = getTokensQueryOptions();
 
   return (
     queryClient.getQueryData(query.queryKey) ??
@@ -14,12 +13,12 @@ export const clientLoader = (queryClient: QueryClient) => async () => {
   );
 };
 
-const UsersRoute = () => {
+const TokensRoute = () => {
   return (
     <ContentLayout title="Users">
-      <UsersList />
+      <TokensList />
     </ContentLayout>
   );
 };
 
-export default UsersRoute;
+export default TokensRoute;

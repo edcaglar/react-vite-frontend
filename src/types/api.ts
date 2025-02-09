@@ -26,20 +26,12 @@ export type AuthResponse = {
   user: User;
 };
 
-export type Team = Entity<{
-  name: string;
+export type Token = Entity<{
+  token_name: string;
   description: string;
-}>;
-
-export type Discussion = Entity<{
-  title: string;
-  body: string;
-  teamId: string;
-  author: User;
-}>;
-
-export type Comment = Entity<{
-  body: string;
-  discussionId: string;
-  author: User;
+  decimal_precision: number;
+  mint_authority: string;
+  freeeze_authority: string;
+  mint_public_key: string;
+  user_id: number;
 }>;

@@ -2,12 +2,10 @@ import { Spinner } from '@/components/ui/spinner';
 import { Table } from '@/components/ui/table';
 import { formatDate } from '@/utils/format';
 
-import { useUsers } from '../api/get-tokens';
+import { useTokens } from '../api/get-tokens';
 
-import { DeleteUser } from './delete-user';
-
-export const UsersList = () => {
-  const usersQuery = useUsers();
+export const TokensList = () => {
+  const usersQuery = useTokens();
 
   if (usersQuery.isLoading) {
     return (
@@ -26,33 +24,34 @@ export const UsersList = () => {
       data={users}
       columns={[
         {
-          title: 'First Name',
-          field: 'firstName',
+          title: 'Token Name',
+          field: 'token_name',
         },
         {
-          title: 'Last Name',
-          field: 'lastName',
+          title: 'Description',
+          field: 'description',
         },
         {
-          title: 'Email',
-          field: 'email',
+          title: 'Decimal Precision',
+          field: 'decimal_precision',
         },
         {
-          title: 'Role',
-          field: 'role',
+          title: 'Mint Authority',
+          field: 'mint_authority',
+        },
+        {
+          title: 'Freeze Authority',
+          field: 'freeeze_authority',
+        },
+        {
+          title: 'Mint Public Key',
+          field: 'mint_public_key',
         },
         {
           title: 'Created At',
           field: 'createdAt',
           Cell({ entry: { createdAt } }) {
             return <span>{formatDate(createdAt)}</span>;
-          },
-        },
-        {
-          title: '',
-          field: 'id',
-          Cell({ entry: { id } }) {
-            return <DeleteUser id={id} />;
           },
         },
       ]}
