@@ -26,12 +26,12 @@ export const paths = {
       path: '',
       getHref: () => '/app',
     },
-    discussions: {
+    tokens: {
       path: 'tokens',
       getHref: () => '/app/tokens',
     },
     token: {
-      path: 'discussions/:tokenId',
+      path: 'tokens/:tokenId',
       getHref: (id: string) => `/app/tokens/${id}`,
     },
     profile: {

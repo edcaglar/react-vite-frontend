@@ -14,7 +14,6 @@ const LandingRoute = () => {
     } else {
       navigate(paths.auth.login.getHref());
     }
-    navigate(paths.auth.login.getHref());
   };
 
   return (
